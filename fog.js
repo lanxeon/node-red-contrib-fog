@@ -57,7 +57,7 @@ module.exports = function (RED) {
       payload.timeout += node.latency;
       payload.path.push(node.number);
 
-      console.log(payload);
+      // console.log(payload);
 
       if (payload.capacity > nodeContext.get("capacity")) {
         if (this.level === flowContext.get("highestLevel")) {
@@ -71,15 +71,19 @@ module.exports = function (RED) {
 
         let fogNodes = node.context().flow.get("fogNodes");
         let nextLevel = fogNodes[node.level + 1];
+        let highestCap = 0;
+        let highestCapNode;
 
-        let highestCap = 0,
-          highestCapNode;
         for (const levelNode of Object.keys(nextLevel)) {
-          console.log(nextLevel[levelNode]);
+          console.log(
+            nextLevel[levelNode].number,
+            nextLevel[levelNode].capacity
+          );
 
-          if (nextLevel[levelNode].capacity > highestCap)
+          if (nextLevel[levelNode].capacity > highestCap) {
             highestCap = nextLevel[levelNode].capacity;
-          highestCapNode = levelNode;
+            highestCapNode = levelNode;
+          }
         }
 
         node.send({
@@ -99,7 +103,10 @@ module.exports = function (RED) {
         curFogNodes[node.level][node.number]["capacity"] = newCapacity;
         node.context().flow.set("fogNodes", curFogNodes);
 
-        // console.log(node.context().flow.get("fogNodes")[2]);
+        console.log(
+          node.number,
+          node.context().flow.get("fogNodes")[node.level][node.number].capacity
+        );
 
         // calculate elapsed time and wait for it, then set capacity back
         let elapsedTime = (payload.instructions / node.IPS) * 1000; // convert seconds to ms
@@ -109,7 +116,10 @@ module.exports = function (RED) {
         curFogNodes[node.level][node.number]["capacity"] = curCapacity;
         node.context().flow.set("fogNodes", curFogNodes);
 
-        // console.log(node.context().flow.get("fogNodes")[2]);
+        console.log(
+          node.number,
+          node.context().flow.get("fogNodes")[node.level][node.number].capacity
+        );
 
         payload.timeout += elapsedTime;
 
