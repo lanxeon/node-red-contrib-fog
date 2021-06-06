@@ -55,9 +55,12 @@ module.exports = function (RED) {
       // perform actions
       let { payload } = msg;
 
+      console.log(payload);
+
       if (payload.capacity > nodeContext.get("capacity")) {
         if (this.level === flowContext.get("highestLevel")) {
           // go to cloud
+          return node.send("KHALAS");
         }
 
         let fogNodes = node.context().flow.get("fogNodes");
@@ -72,31 +75,25 @@ module.exports = function (RED) {
         }
 
         node.send({
-          ...payload,
+          payload,
           forwardTo: highestCapNode,
-          forwaredBy: node.number,
+          forwardedBy: node.number,
         });
+      } else {
+        // 1000 ips
+        // 300 instructions, 45
+
+        let subtractedCapacity = payload.capacity;
+        let curCapacity = nodeContext.get("capacity");
+        let newCapacity = curCapacity - subtractedCapacity;
+        nodeContext.set("capacity", newCapacity);
+
+        let curFogNodes = { ...node.context().flow.get("fogNodes") };
+        curFogNodes[node.level][node.number]["capacity"] = newCapacity;
+        node.context().flow.set("fogNodes", curFogNodes);
+
+        node.send({ payload, forwardTo: 0, completedBy: node.number });
       }
-
-      // 1000 ips
-      // 300 instructions, 45
-
-      let subtractedCapacity = payload.capacity;
-      let curCapacity = nodeContext.get("capacity");
-      let newCapacity = curCapacity - subtractedCapacity;
-      nodeContext.set("capacity", newCapacity);
-
-      let curFogNodes = node.context().flow.get("fogNodes");
-      let fogNodesUpdated = {
-        ...curFogNodes,
-        [node.level]: {
-          ...[node.level],
-          [node.number]: { ...[node.number], capacity: newCapacity },
-        },
-      };
-      node.context().flow.set("fogNodes", fogNodesUpdated);
-
-      node.send({ ...payload, forwardTo: 0, completedBy: node.number });
     });
   }
 
