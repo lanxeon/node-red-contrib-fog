@@ -1,8 +1,8 @@
 <!-- node config -->
 <script type="text/javascript">
-  RED.nodes.registerType('fog', {
+  RED.nodes.registerType('fog-node', {
     category: 'function',
-    color: '#a6bbcf',
+    color: '#67f',
     defaults: {
       name: { value: "" },
       number: { value: 0, required: true, validate: RED.validators.number() },
@@ -31,7 +31,7 @@
 </script>
 
 <!-- inputs on node -->
-<script type="text/html" data-template-name="fog">
+<script type="text/html" data-template-name="fog-node">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
@@ -50,7 +50,7 @@
     </div>
     <div class="form-row">
       <label for="node-input-IPS"><i class="fa fa-tag"></i>Instructions Per Second</label>
-      <input type="text" id="node-input-name" placeholder="0-5000">
+      <input type="text" id="node-input-IPS" placeholder="0-5000">
     </div>
     <div class="form-row">
       <label for="node-input-latency"><i class="fa fa-tag"></i>Latency(ms)</label>
@@ -59,6 +59,6 @@
 </script>
 
 <!-- helper script -->
-<script type="text/html" data-help-name="fog">
+<script type="text/html" data-help-name="fog-node">
     <p>A fog node</p>
 </script>
