@@ -40,7 +40,7 @@
         "type": "function",
         "z": "92193ed2.97f37",
         "name": "load injector",
-        "func": "let randomCapacity = Math.random() * 1000; // 0-500\nlet randomNumInstructions = Math.random() * 700; // 0-5000\nlet randomDevice = Math.ceil(Math.random() * 3);\n\n\nreturn {\n    payload: {\n        capacity: randomCapacity,\n        instructions: randomNumInstructions,\n        timeout: 0,\n        path: []\n    },\n    node: randomDevice\n};",
+        "func": "// let randomCapacity = Math.random() * 630;\n\nlet randomCapacity = Math.floor(Math.random() * (630 - 300) ) + 300;\nlet randomNumInstructions = Math.random() * 700;\nlet randomDevice = Math.ceil(Math.random() * 3);\n\n\nreturn {\n    payload: {\n        capacity: randomCapacity,\n        instructions: randomNumInstructions,\n        timeout: 0,\n        path: []\n    },\n    node: randomDevice\n};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -253,13 +253,13 @@
         "rules": [
             {
                 "t": "eq",
-                "v": "cloud",
-                "vt": "str"
+                "v": "0",
+                "vt": "num"
             },
             {
                 "t": "eq",
-                "v": "0",
-                "vt": "num"
+                "v": "cloud",
+                "vt": "str"
             }
         ],
         "checkall": "true",
@@ -281,7 +281,7 @@
         "type": "function",
         "z": "92193ed2.97f37",
         "name": "cloud",
-        "func": "\nreturn {... msg, payload: {... msg.payload, completedBy: \"cloud\"}};",
+        "func": "\nconsole.log(\"here\")\n\nreturn {...msg, completedBy: \"cloud\"};",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",

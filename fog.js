@@ -57,12 +57,11 @@ module.exports = function (RED) {
       payload.timeout += node.latency;
       payload.path.push(node.number);
 
-      // console.log(payload);
-
       if (payload.capacity > nodeContext.get("capacity")) {
         if (this.level === flowContext.get("highestLevel")) {
           // go to cloud
           return node.send({
+            ...msg,
             payload,
             forwardTo: "cloud",
             forwardedBy: node.number,
@@ -75,11 +74,6 @@ module.exports = function (RED) {
         let highestCapNode;
 
         for (const levelNode of Object.keys(nextLevel)) {
-          console.log(
-            nextLevel[levelNode].number,
-            nextLevel[levelNode].capacity
-          );
-
           if (nextLevel[levelNode].capacity > highestCap) {
             highestCap = nextLevel[levelNode].capacity;
             highestCapNode = levelNode;
@@ -103,11 +97,6 @@ module.exports = function (RED) {
         curFogNodes[node.level][node.number]["capacity"] = newCapacity;
         node.context().flow.set("fogNodes", curFogNodes);
 
-        console.log(
-          node.number,
-          node.context().flow.get("fogNodes")[node.level][node.number].capacity
-        );
-
         // calculate elapsed time and wait for it, then set capacity back
         let elapsedTime = (payload.instructions / node.IPS) * 1000; // convert seconds to ms
         await timeout(elapsedTime);
@@ -116,14 +105,14 @@ module.exports = function (RED) {
         curFogNodes[node.level][node.number]["capacity"] = curCapacity;
         node.context().flow.set("fogNodes", curFogNodes);
 
-        console.log(
-          node.number,
-          node.context().flow.get("fogNodes")[node.level][node.number].capacity
-        );
-
         payload.timeout += elapsedTime;
 
-        node.send({ payload, forwardTo: 0, completedBy: node.number });
+        node.send({
+          ...msg,
+          payload,
+          forwardTo: 0,
+          completedBy: node.number,
+        });
       }
     });
   }
