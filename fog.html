@@ -1,0 +1,64 @@
+<!-- node config -->
+<script type="text/javascript">
+  RED.nodes.registerType('fog', {
+    category: 'function',
+    color: '#a6bbcf',
+    defaults: {
+      name: { value: "" },
+      number: { value: 0, required: true, validate: RED.validators.number() },
+      capacity: {
+        value: 0, required: true, validate: function (v) {
+          return typeof +v === "number" && +v >= 0 && +v <= 1000
+        }
+      },
+      level: {
+        value: 1, required: true, validate: RED.validators.number()
+      },
+      IPS: {
+        value: 500, required: true, validate: RED.validators.number(),
+      },
+      latency: {
+        value: 500, required: true, validate: RED.validators.number()
+      }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "bridge.svg",
+    label: function () {
+      return this.name || "fog node";
+    }
+  });
+</script>
+
+<!-- inputs on node -->
+<script type="text/html" data-template-name="fog">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+      <label for="node-input-number"><i class="fa fa-tag"></i>Node Number</label>
+      <input type="text" id="node-input-number" placeholder="Number">
+    </div>
+    <div class="form-row">
+      <label for="node-input-capacity"><i class="fa fa-tag"></i>Capacity</label>
+      <input type="text" id="node-input-capacity" placeholder="0-1000">
+    </div>
+    <div class="form-row">
+      <label for="node-input-level"><i class="fa fa-tag"></i>Level</label>
+      <input type="text" id="node-input-level" placeholder="Level">
+    </div>
+    <div class="form-row">
+      <label for="node-input-IPS"><i class="fa fa-tag"></i>Instructions Per Second</label>
+      <input type="text" id="node-input-name" placeholder="0-5000">
+    </div>
+    <div class="form-row">
+      <label for="node-input-latency"><i class="fa fa-tag"></i>Latency(ms)</label>
+      <input type="text" id="node-input-latency" placeholder="0-1500">
+    </div>
+</script>
+
+<!-- helper script -->
+<script type="text/html" data-help-name="fog">
+    <p>A fog node</p>
+</script>
