@@ -54,13 +54,19 @@ module.exports = function (RED) {
 
       // perform actions
       let { payload } = msg;
+      payload.timeout += node.latency;
+      payload.path.push(node.number);
 
       console.log(payload);
 
       if (payload.capacity > nodeContext.get("capacity")) {
         if (this.level === flowContext.get("highestLevel")) {
           // go to cloud
-          return node.send("KHALAS");
+          return node.send({
+            payload,
+            forwardTo: "cloud",
+            forwardedBy: node.number,
+          });
         }
 
         let fogNodes = node.context().flow.get("fogNodes");
@@ -69,6 +75,8 @@ module.exports = function (RED) {
         let highestCap = 0,
           highestCapNode;
         for (const levelNode of Object.keys(nextLevel)) {
+          console.log(nextLevel[levelNode]);
+
           if (nextLevel[levelNode].capacity > highestCap)
             highestCap = nextLevel[levelNode].capacity;
           highestCapNode = levelNode;
@@ -80,17 +88,30 @@ module.exports = function (RED) {
           forwardedBy: node.number,
         });
       } else {
-        // 1000 ips
-        // 300 instructions, 45
-
+        // calculate new capacity(RAM)
         let subtractedCapacity = payload.capacity;
         let curCapacity = nodeContext.get("capacity");
         let newCapacity = curCapacity - subtractedCapacity;
         nodeContext.set("capacity", newCapacity);
 
+        // update global state
         let curFogNodes = { ...node.context().flow.get("fogNodes") };
         curFogNodes[node.level][node.number]["capacity"] = newCapacity;
         node.context().flow.set("fogNodes", curFogNodes);
+
+        // console.log(node.context().flow.get("fogNodes")[2]);
+
+        // calculate elapsed time and wait for it, then set capacity back
+        let elapsedTime = (payload.instructions / node.IPS) * 1000; // convert seconds to ms
+        await timeout(elapsedTime);
+
+        nodeContext.set("capacity", curCapacity);
+        curFogNodes[node.level][node.number]["capacity"] = curCapacity;
+        node.context().flow.set("fogNodes", curFogNodes);
+
+        // console.log(node.context().flow.get("fogNodes")[2]);
+
+        payload.timeout += elapsedTime;
 
         node.send({ payload, forwardTo: 0, completedBy: node.number });
       }
@@ -99,9 +120,3 @@ module.exports = function (RED) {
 
   RED.nodes.registerType("fog-node", Fog);
 };
-
-// number_of_instructions, capacity
-
-// global_context = {
-//   levelNumber: {nodeNumber: {...node}}
-// }
