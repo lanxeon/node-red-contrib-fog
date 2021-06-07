@@ -177,3 +177,4 @@
 {"capacity":224,"instructions":1902,"timeout":1835,"path":[2]}
 {"capacity":679,"instructions":879,"timeout":1208.6,"path":[3,4,"cloud"]}
 {"capacity":442,"instructions":2195,"timeout":1356.3333333333333,"path":[2,4,"cloud"]}
+{"capacity":286,"instructions":1715,"timeout":2600,"path":[1]}
