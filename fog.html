@@ -1,3 +1,4 @@
+<!-- FOG NODE -->
 <!-- node config -->
 <script type="text/javascript">
   RED.nodes.registerType('fog-node', {
@@ -64,13 +65,12 @@
 </script>
 
 
-<!-- device -->
-
+<!-- DEVICE (MOBILE, ECG) -->
 <!-- node config -->
 <script type="text/javascript">
   RED.nodes.registerType('device', {
     category: 'Fog Simulation',
-    color: '#67f',
+    color: '#E9967A',
     defaults: {
       name: { value: "" },
       minCapacity: {
@@ -97,7 +97,7 @@
     },
     inputs: 1,
     outputs: 1,
-    icon: "bridge.svg",
+    icon: "font-awesome/fa-mobile",
     label: function () {
       return this.name || "mobile device";
     }
