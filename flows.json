@@ -7,98 +7,6 @@
         "info": "trial"
     },
     {
-        "id": "caabcb62.1997a8",
-        "type": "inject",
-        "z": "92193ed2.97f37",
-        "d": true,
-        "name": "initiator",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 110,
-        "y": 580,
-        "wires": [
-            [
-                "b0f08f04.bf81d"
-            ]
-        ]
-    },
-    {
-        "id": "b0f08f04.bf81d",
-        "type": "function",
-        "z": "92193ed2.97f37",
-        "d": true,
-        "name": "load injector",
-        "func": "// let randomCapacity = Math.random() * 630;\n\nlet randomCapacity = Math.floor(Math.random() * (630 - 300) ) + 300;\nlet randomNumInstructions = Math.random() * 700;\nlet randomDevice = Math.ceil(Math.random() * 3);\n\n\nreturn {\n    payload: {\n        capacity: randomCapacity,\n        instructions: randomNumInstructions,\n        timeout: 0,\n        path: []\n    },\n    node: randomDevice\n};",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 270,
-        "y": 580,
-        "wires": [
-            [
-                "144dcefc.5c05a1"
-            ]
-        ]
-    },
-    {
-        "id": "144dcefc.5c05a1",
-        "type": "switch",
-        "z": "92193ed2.97f37",
-        "d": true,
-        "name": "",
-        "property": "node",
-        "propertyType": "msg",
-        "rules": [
-            {
-                "t": "eq",
-                "v": "1",
-                "vt": "num"
-            },
-            {
-                "t": "eq",
-                "v": "2",
-                "vt": "num"
-            },
-            {
-                "t": "eq",
-                "v": "3",
-                "vt": "num"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 3,
-        "x": 430,
-        "y": 580,
-        "wires": [
-            [
-                "a32b546b.6438b8"
-            ],
-            [
-                "91150dba.9c13d"
-            ],
-            [
-                "77d54ec2.3a60b"
-            ]
-        ]
-    },
-    {
         "id": "a32b546b.6438b8",
         "type": "fog-node",
         "z": "92193ed2.97f37",
@@ -189,7 +97,8 @@
                 "e5ae5803.b29348"
             ],
             [
-                "3a58c90e.176ff6"
+                "3a58c90e.176ff6",
+                "8710da38.8a7428"
             ]
         ]
     },
@@ -233,7 +142,7 @@
         "id": "3a58c90e.176ff6",
         "type": "debug",
         "z": "92193ed2.97f37",
-        "name": "completed logs",
+        "name": "Output",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -242,8 +151,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1060,
-        "y": 560,
+        "x": 1230,
+        "y": 360,
         "wires": []
     },
     {
@@ -275,26 +184,8 @@
                 "3a58c90e.176ff6"
             ],
             [
-                "941156bb.d7c078"
-            ]
-        ]
-    },
-    {
-        "id": "941156bb.d7c078",
-        "type": "function",
-        "z": "92193ed2.97f37",
-        "name": "cloud",
-        "func": "\nreturn {...msg, completedBy: \"cloud\"};",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1290,
-        "y": 200,
-        "wires": [
-            [
-                "3a58c90e.176ff6"
+                "d1e10ae1.c32518",
+                "8710da38.8a7428"
             ]
         ]
     },
@@ -432,6 +323,36 @@
                 "bb5f6b87.7de3b8",
                 "a08ff161.bc217"
             ]
+        ]
+    },
+    {
+        "id": "d1e10ae1.c32518",
+        "type": "cloud",
+        "z": "92193ed2.97f37",
+        "name": "Cloud",
+        "x": 1310,
+        "y": 200,
+        "wires": [
+            [
+                "3a58c90e.176ff6",
+                "8710da38.8a7428"
+            ]
+        ]
+    },
+    {
+        "id": "8710da38.8a7428",
+        "type": "file",
+        "z": "92193ed2.97f37",
+        "name": "Saved Logs",
+        "filename": "f:/projects/node-red/node-red-contrib-fog/logs.txt",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1030,
+        "y": 360,
+        "wires": [
+            []
         ]
     }
 ]
