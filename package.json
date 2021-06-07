@@ -15,7 +15,8 @@
     "node-red": {
         "nodes": {
             "fog-node": "fog.js",
-            "device": "device.js"
+            "device": "device.js",
+            "cloud": "cloud.js"
         }
     }
 }

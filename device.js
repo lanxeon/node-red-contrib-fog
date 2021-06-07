@@ -1,5 +1,3 @@
-const fs = require("fs");
-
 module.exports = function (RED) {
   function Device(config) {
     RED.nodes.createNode(this, config);

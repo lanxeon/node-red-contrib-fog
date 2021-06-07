@@ -136,3 +136,35 @@
 <script type="text/html" data-help-name="device">
     <p>An IOT device like a mobile phone or an ECG</p>
 </script>
+
+
+<!-- CLOUD -->
+<!-- node config -->
+<script type="text/javascript">
+  RED.nodes.registerType('cloud', {
+    category: 'Fog Simulation',
+    color: '#3FADB5',
+    defaults: {
+      name: { value: "Cloud" },
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "font-awesome/fa-cloud",
+    label: function () {
+      return this.name || "Cloud";
+    }
+  });
+</script>
+
+<!-- inputs on node -->
+<script type="text/html" data-template-name="cloud">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<!-- helper script -->
+<script type="text/html" data-help-name="device">
+    <p>The cloud server, with seemingly infinite resources, but at the cost of high latency</p>
+</script>
