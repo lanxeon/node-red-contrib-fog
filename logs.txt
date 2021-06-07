@@ -282,3 +282,4 @@
 {"capacity":288,"instructions":1527,"timeout":2331.4285714285716,"path":[1]}
 {"capacity":255,"instructions":1123,"timeout":500,"path":[1,5]}
 {"capacity":18,"instructions":534,"timeout":857.5,"path":[3]}
+{"capacity":255,"instructions":1123,"timeout":1324.8666666666666,"path":[1,5,"cloud"]}
