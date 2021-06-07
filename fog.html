@@ -9,7 +9,7 @@
       number: { value: 0, required: true, validate: RED.validators.number() },
       capacity: {
         value: 0, required: true, validate: function (v) {
-          return typeof +v === "number" && +v >= 0 && +v <= 1000
+          return typeof +v === "number" && +v >= 1 && +v <= 1000
         }
       },
       level: {
@@ -20,6 +20,11 @@
       },
       latency: {
         value: 500, required: true, validate: RED.validators.number()
+      },
+      mode: {
+        value: "highest_capacity", required: true, validate: function (v) {
+          return ["highest_capacity", "earliest_response", "equal_capacity"].includes(v);
+        }
       }
     },
     inputs: 1,
@@ -56,6 +61,14 @@
     <div class="form-row">
       <label for="node-input-latency"><i class="fa fa-tag"></i>Latency(ms)</label>
       <input type="text" id="node-input-latency" placeholder="0-1500">
+    </div>
+    <div class="form-row">
+      <label for="node-input-mode"><i class="fa fa-tag"></i>Mode</label>
+      <select id="node-input-mode" placeholder="0-1500">
+        <option value="highest_capacity">Highest Capacity</option>
+        <option value="earliest_response">Earliest Response</option>
+        <option value="equal_capacity">Equal Capacity</option>
+      </select>
     </div>
 </script>
 

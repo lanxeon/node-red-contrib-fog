@@ -131,6 +131,23 @@ module.exports = function (RED) {
             break;
 
           case "equal_capacity":
+            for (const levelNode of Object.keys(nextLevel)) {
+              if (nextLevel[levelNode].capacity > highestCap) {
+                highestCap = nextLevel[levelNode].capacity;
+                highestCapNode = levelNode;
+
+                if (
+                  nextLevel[levelNode].capacity > payload.capacity &&
+                  nextLevel[levelNode].loadPercentage < lowestPercentage
+                ) {
+                  let lowestPercentage = nextLevel[levelNode].loadPercentage;
+                  chosenNode = levelNode;
+                }
+              }
+            }
+            if (!chosenNode) {
+              chosenNode = highestCapNode;
+            }
             break;
         }
 
@@ -185,7 +202,7 @@ module.exports = function (RED) {
         nodeContext.set("loadPercentage", newLoadPercentage);
 
         // update global state
-        let curFogNodes = { ...node.context().flow.get("fogNodes") };
+        curFogNodes = { ...node.context().flow.get("fogNodes") };
         curFogNodes[node.level][node.number]["capacity"] = newCapacity;
         curFogNodes[node.level][node.number]["load"] = newCapacity;
         curFogNodes[node.level][node.number]["loadPercentage"] =
