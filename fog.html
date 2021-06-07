@@ -1,7 +1,7 @@
 <!-- node config -->
 <script type="text/javascript">
   RED.nodes.registerType('fog-node', {
-    category: 'function',
+    category: 'Fog Simulation',
     color: '#67f',
     defaults: {
       name: { value: "" },
@@ -61,4 +61,78 @@
 <!-- helper script -->
 <script type="text/html" data-help-name="fog-node">
     <p>A fog node</p>
+</script>
+
+
+<!-- device -->
+
+<!-- node config -->
+<script type="text/javascript">
+  RED.nodes.registerType('device', {
+    category: 'Fog Simulation',
+    color: '#67f',
+    defaults: {
+      name: { value: "" },
+      minCapacity: {
+        value: 1, required: true, validate: function (v) {
+          return typeof +v === "number" && +v > 0 && +v <= 1000
+        }
+      },
+      maxCapacity: {
+        value: 1000, required: true, validate: function (v) {
+          return typeof +v === "number" && +v > 0 && +v <= 1000
+        }
+      },
+      minIPS: {
+        value: 1, required: true, validate: function (v) {
+          return typeof +v === "number" && +v > 0 && +v <= 5000
+        }
+      },
+      maxIPS: {
+        value: 5000, required: true, validate: function (v) {
+          return typeof +v === "number" && +v >= 0 && +v <= 5000
+        }
+      },
+      interval: { value: 2, required: true, validate: RED.validators.number() }
+    },
+    inputs: 1,
+    outputs: 1,
+    icon: "bridge.svg",
+    label: function () {
+      return this.name || "mobile device";
+    }
+  });
+</script>
+
+<!-- inputs on node -->
+<script type="text/html" data-template-name="device">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+      <label for="node-input-minCapacity"><i class="fa fa-tag"></i>Minimum Capacity</label>
+      <input type="text" id="node-input-minCapacity" placeholder="0-1000">
+    </div>
+    <div class="form-row">
+      <label for="node-input-maxCapacity"><i class="fa fa-tag"></i>Maximum Capacity</label>
+      <input type="text" id="node-input-maxCapacity" placeholder="0-1000">
+    </div>
+    <div class="form-row">
+      <label for="node-input-minIPS"><i class="fa fa-tag"></i>Minimum Instructions</label>
+      <input type="text" id="node-input-minIPS" placeholder="0-5000">
+    </div>
+    <div class="form-row">
+      <label for="node-input-maxIPS"><i class="fa fa-tag"></i>Maximum Instructions</label>
+      <input type="text" id="node-input-maxIPS" placeholder="0-5000">
+    </div>
+    <div class="form-row">
+      <label for="node-input-interval"><i class="fa fa-tag"></i>Interval(seconds)</label>
+      <input type="text" id="node-input-interval" placeholder="0-5">
+    </div>
+</script>
+
+<!-- helper script -->
+<script type="text/html" data-help-name="device">
+    <p>An IOT device like a mobile phone or an ECG</p>
 </script>

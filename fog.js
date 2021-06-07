@@ -4,8 +4,6 @@ module.exports = function (RED) {
   function Fog(config) {
     RED.nodes.createNode(this, config);
 
-    fs.writeFileSync("lmao.txt", "hello");
-
     // timeout function
     function timeout(ms) {
       return new Promise((resolve) => setTimeout(resolve, ms));
@@ -51,6 +49,8 @@ module.exports = function (RED) {
     node.on("input", async function (msg) {
       // wait for this before performing actions
       await timeout(node.latency);
+
+      // fs.writeFileSync(`${Date.now()}.txt`, JSON.stringify(msg));
 
       // perform actions
       let { payload } = msg;
