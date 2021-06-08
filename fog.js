@@ -176,7 +176,7 @@ module.exports = function (RED) {
         // update global state
         let curFogNodes = { ...node.context().flow.get("fogNodes") };
         curFogNodes[node.level][node.number]["capacity"] = newCapacity;
-        curFogNodes[node.level][node.number]["load"] = newCapacity;
+        curFogNodes[node.level][node.number]["load"] = newLoad;
         curFogNodes[node.level][node.number]["loadPercentage"] =
           newLoadPercentage;
         node.context().flow.set("fogNodes", curFogNodes);
@@ -204,7 +204,7 @@ module.exports = function (RED) {
         // update global state
         curFogNodes = { ...node.context().flow.get("fogNodes") };
         curFogNodes[node.level][node.number]["capacity"] = newCapacity;
-        curFogNodes[node.level][node.number]["load"] = newCapacity;
+        curFogNodes[node.level][node.number]["load"] = newLoad;
         curFogNodes[node.level][node.number]["loadPercentage"] =
           newLoadPercentage;
         node.context().flow.set("fogNodes", curFogNodes);
