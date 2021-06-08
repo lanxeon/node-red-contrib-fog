@@ -16,7 +16,8 @@
         "nodes": {
             "fog-node": "fog.js",
             "device": "device.js",
-            "cloud": "cloud.js"
+            "cloud": "cloud.js",
+            "logger": "context-logger.js"
         }
     }
 }

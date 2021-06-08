@@ -181,3 +181,35 @@
 <script type="text/html" data-help-name="device">
     <p>The cloud server, with seemingly infinite resources, but at the cost of high latency</p>
 </script>
+
+
+<!-- CLOUD -->
+<!-- node config -->
+<script type="text/javascript">
+  RED.nodes.registerType('logger', {
+    category: 'Fog Simulation',
+    color: '#A6BBCF',
+    defaults: {
+      name: { value: "Context Logger" },
+    },
+    inputs: 1,
+    outputs: 0,
+    icon: "file.svg",
+    label: function () {
+      return this.name || "Context Logger";
+    }
+  });
+</script>
+
+<!-- inputs on node -->
+<script type="text/html" data-template-name="logger">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<!-- helper script -->
+<script type="text/html" data-help-name="logger">
+    <p>Helper node to log context</p>
+</script>
