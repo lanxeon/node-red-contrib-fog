@@ -1,0 +1,1162 @@
+[
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 241,
+        "load": 59,
+        "loadPercentage": 19.666666666666664,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 285,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 112,
+        "load": 638,
+        "loadPercentage": 85.06666666666666,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 50000,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 41,
+        "load": 259,
+        "loadPercentage": 86.33333333333333,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 285,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 443,
+        "load": 307,
+        "loadPercentage": 40.93333333333333,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 50000,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 190,
+        "load": 110,
+        "loadPercentage": 36.666666666666664,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 285,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 402,
+        "load": 348,
+        "loadPercentage": 46.400000000000006,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 50000,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 136,
+        "load": 164,
+        "loadPercentage": 54.666666666666664,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 216,
+        "load": 69,
+        "loadPercentage": 24.210526315789473,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 483,
+        "load": 267,
+        "loadPercentage": 35.6,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 50000,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 87,
+        "load": 213,
+        "loadPercentage": 71,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 42,
+        "load": 243,
+        "loadPercentage": 85.26315789473684,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 618,
+        "load": 132,
+        "loadPercentage": 17.599999999999998,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 50000,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 191,
+        "load": 109,
+        "loadPercentage": 36.333333333333336,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 163,
+        "load": 122,
+        "loadPercentage": 42.80701754385965,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 476,
+        "load": 274,
+        "loadPercentage": 36.53333333333333,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 50000,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 53,
+        "load": 247,
+        "loadPercentage": 82.33333333333334,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 206,
+        "load": 79,
+        "loadPercentage": 27.719298245614034,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 750,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 50000,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 140,
+        "load": 160,
+        "loadPercentage": 53.333333333333336,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 285,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 384,
+        "load": 26,
+        "loadPercentage": 6.341463414634147,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 416,
+        "load": 284,
+        "loadPercentage": 40.57142857142857,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 251,
+        "load": 499,
+        "loadPercentage": 66.53333333333333,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 50000,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 48,
+        "load": 252,
+        "loadPercentage": 84,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 285,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 263,
+        "load": 487,
+        "loadPercentage": 64.93333333333334,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 50000,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 159,
+        "load": 141,
+        "loadPercentage": 47,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 20,
+        "load": 265,
+        "loadPercentage": 92.98245614035088,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 383,
+        "load": 367,
+        "loadPercentage": 48.93333333333334,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 50000,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 157,
+        "load": 143,
+        "loadPercentage": 47.66666666666667,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 138,
+        "load": 147,
+        "loadPercentage": 51.578947368421055,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 750,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 50000,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 212,
+        "load": 88,
+        "loadPercentage": 29.333333333333332,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 285,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 328,
+        "load": 422,
+        "loadPercentage": 56.266666666666666,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 50000,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 174,
+        "load": 126,
+        "loadPercentage": 42,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 33,
+        "load": 252,
+        "loadPercentage": 88.42105263157895,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 592,
+        "load": 158,
+        "loadPercentage": 21.066666666666666,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 49732,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 1,
+        "load": 299,
+        "loadPercentage": 99.66666666666667,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 61,
+        "load": 224,
+        "loadPercentage": 78.59649122807018,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 750,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 49732,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 1,
+        "load": 299,
+        "loadPercentage": 99.66666666666667,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 285,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 396,
+        "load": 354,
+        "loadPercentage": 47.199999999999996,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 49732,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 136,
+        "load": 164,
+        "loadPercentage": 54.666666666666664,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 102,
+        "load": 183,
+        "loadPercentage": 64.21052631578948,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 750,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 49732,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 156,
+        "load": 144,
+        "loadPercentage": 48,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 285,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 375,
+        "load": 375,
+        "loadPercentage": 50,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 49732,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 76,
+        "load": 224,
+        "loadPercentage": 74.66666666666667,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 36,
+        "load": 249,
+        "loadPercentage": 87.36842105263159,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 424,
+        "load": 326,
+        "loadPercentage": 43.46666666666666,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 49732,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 176,
+        "load": 124,
+        "loadPercentage": 41.333333333333336,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 212,
+        "load": 73,
+        "loadPercentage": 25.6140350877193,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 410,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 750,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 49732,
+        "IPS": 15000
+      }
+    ]
+  ],
+  [
+    [
+      {
+        "number": 1,
+        "level": 1,
+        "availableCapacity": 0,
+        "load": 300,
+        "loadPercentage": 100,
+        "IPS": 700
+      },
+      {
+        "number": 2,
+        "level": 1,
+        "totalCapacity": 285,
+        "availableCapacity": 285,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 1200
+      },
+      {
+        "number": 3,
+        "level": 1,
+        "totalCapacity": 410,
+        "availableCapacity": 384,
+        "load": 26,
+        "loadPercentage": 6.341463414634147,
+        "IPS": 800
+      }
+    ],
+    [
+      {
+        "number": 4,
+        "level": 2,
+        "totalCapacity": 700,
+        "availableCapacity": 700,
+        "load": 0,
+        "loadPercentage": 0,
+        "IPS": 3150
+      },
+      {
+        "number": 5,
+        "level": 2,
+        "totalCapacity": 750,
+        "availableCapacity": 347,
+        "load": 403,
+        "loadPercentage": 53.733333333333334,
+        "IPS": 4100
+      }
+    ],
+    [
+      {
+        "number": null,
+        "level": null,
+        "availableCapacity": 49732,
+        "IPS": 15000
+      }
+    ]
+  ]
+]

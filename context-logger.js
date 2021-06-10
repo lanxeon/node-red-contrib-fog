@@ -25,8 +25,29 @@ module.exports = function (RED) {
         await timeout(2 * 1000);
 
         let context = node.context().flow.get("fogNodes");
+        let data = [];
+
+        Object.keys(context).forEach((k) => {
+          let dataToPush = [];
+          for (const nodeNumber in context[k]) {
+            const nodeData = context[k][nodeNumber];
+
+            dataToPush.push({
+              number: +nodeNumber,
+              level: +k,
+              totalCapacity: nodeData.totalCapacity,
+              availableCapacity: nodeData.capacity,
+              load: nodeData.load,
+              loadPercentage: nodeData.loadPercentage,
+              IPS: nodeData.IPS,
+            });
+          }
+
+          data.push(dataToPush);
+        });
+
         let curData = JSON.parse(fs.readFileSync(node.filename));
-        curData.push(context);
+        curData.push(data);
 
         fs.writeFileSync(node.filename, JSON.stringify(curData));
 
@@ -39,3 +60,14 @@ module.exports = function (RED) {
 
   RED.nodes.registerType("logger", Logger);
 };
+
+// let val = Object.assign(
+//   {},
+//   ...(function _flatten(o) {
+//     return [].concat(
+//       ...Object.keys(o).map((k) =>
+//         typeof o[k] === "object" ? _flatten(o[k]) : { [k]: o[k] }
+//       )
+//     );
+//   })(context)
+// );

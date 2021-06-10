@@ -57,9 +57,21 @@ module.exports = function (RED) {
         [this.level]: fogNodes[this.level]
           ? {
               ...fogNodes[this.level],
-              [node.number]: { ...node, load: 0, loadPercentage: 0 },
+              [node.number]: {
+                ...node,
+                load: 0,
+                loadPercentage: 0,
+                totalCapacity: node.capacity,
+              },
             }
-          : { [node.number]: { ...node, load: 0, loadPercentage: 0 } },
+          : {
+              [node.number]: {
+                ...node,
+                load: 0,
+                loadPercentage: 0,
+                totalCapacity: node.capacity,
+              },
+            },
       });
     }
 
