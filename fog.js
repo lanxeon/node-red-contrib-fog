@@ -173,7 +173,7 @@ module.exports = function (RED) {
         let subtractedCapacity = payload.capacity;
         let curCapacity = nodeContext.get("capacity");
         let curLoad = nodeContext.get("load");
-        let curLoadPercentage = nodeContext.get("loadPercentage");
+        // let curLoadPercentage = nodeContext.get("loadPercentage");
 
         let newCapacity = curCapacity - subtractedCapacity;
         let newLoad = curLoad + subtractedCapacity;
@@ -226,7 +226,7 @@ module.exports = function (RED) {
         node.send({
           ...msg,
           payload,
-          forwardTo: 0,
+          forwardTo: "debug",
           completedBy: node.number,
         });
       }

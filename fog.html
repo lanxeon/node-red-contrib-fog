@@ -183,7 +183,7 @@
 </script>
 
 
-<!-- CLOUD -->
+<!-- CONTEXT LOGGER -->
 <!-- node config -->
 <script type="text/javascript">
   RED.nodes.registerType('logger', {
@@ -212,4 +212,36 @@
 <!-- helper script -->
 <script type="text/html" data-help-name="logger">
     <p>Helper node to log context</p>
+</script>
+
+
+<!-- RESPONSE LOGGER -->
+<!-- node config -->
+<script type="text/javascript">
+  RED.nodes.registerType('response-logger', {
+    category: 'Fog Simulation',
+    color: '#A6BBCF',
+    defaults: {
+      name: { value: "Response Logger" },
+    },
+    inputs: 1,
+    outputs: 0,
+    icon: "file.svg",
+    label: function () {
+      return this.name || "Response Logger";
+    }
+  });
+</script>
+
+<!-- inputs on node -->
+<script type="text/html" data-template-name="response-logger">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<!-- helper script -->
+<script type="text/html" data-help-name="response-logger">
+    <p>Helper node to log responses</p>
 </script>

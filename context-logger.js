@@ -28,13 +28,12 @@ module.exports = function (RED) {
         let data = [];
 
         Object.keys(context).forEach((k) => {
-          let dataToPush = [];
           for (const nodeNumber in context[k]) {
             const nodeData = context[k][nodeNumber];
 
-            dataToPush.push({
-              number: +nodeNumber,
-              level: +k,
+            data.push({
+              number: +nodeNumber || "cloud",
+              level: +k || "cloud",
               totalCapacity: nodeData.totalCapacity,
               availableCapacity: nodeData.capacity,
               load: nodeData.load,
@@ -42,8 +41,6 @@ module.exports = function (RED) {
               IPS: nodeData.IPS,
             });
           }
-
-          data.push(dataToPush);
         });
 
         let curData = JSON.parse(fs.readFileSync(node.filename));
@@ -52,7 +49,7 @@ module.exports = function (RED) {
         fs.writeFileSync(node.filename, JSON.stringify(curData));
 
         // node.send({
-        //   payload: { capacity, instructions, timeout: _timeout, path },
+        //   payload: { data: newData, timestamp: Date.now() },
         // });
       }
     });
