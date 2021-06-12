@@ -10,7 +10,7 @@ module.exports = function (RED) {
     // initializing properties
     this.capacity = 50000;
     this.IPS = 15000;
-    this.latency = 750; //500 ms latency
+    this.latency = 650; //500 ms latency
 
     const node = this;
 
