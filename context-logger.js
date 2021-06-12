@@ -22,7 +22,7 @@ module.exports = function (RED) {
       else node.context().set("injecting", false);
 
       while (node.context().get("injecting")) {
-        await timeout(2 * 1000);
+        await timeout(0.75 * 1000);
 
         let context = node.context().flow.get("fogNodes");
         let data = [];
@@ -48,9 +48,14 @@ module.exports = function (RED) {
 
         fs.writeFileSync(node.filename, JSON.stringify(curData));
 
-        // node.send({
-        //   payload: { data: newData, timestamp: Date.now() },
-        // });
+        let formattedData = data.map((d) => ({
+          topic: d.number || "cloud",
+          payload: d.loadPercentage || 0,
+        }));
+
+        node.send({
+          payload: { data: formattedData, timestamp: Date.now() },
+        });
       }
     });
   }

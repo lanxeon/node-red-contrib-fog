@@ -152,7 +152,7 @@ module.exports = function (RED) {
                   nextLevel[levelNode].capacity > payload.capacity &&
                   nextLevel[levelNode].loadPercentage < lowestPercentage
                 ) {
-                  let lowestPercentage = nextLevel[levelNode].loadPercentage;
+                  lowestPercentage = nextLevel[levelNode].loadPercentage;
                   chosenNode = levelNode;
                 }
               }
@@ -165,7 +165,7 @@ module.exports = function (RED) {
 
         node.send({
           payload,
-          forwardTo: highestCapNode,
+          forwardTo: chosenNode,
           forwardedBy: node.number,
         });
       } else {
@@ -201,10 +201,11 @@ module.exports = function (RED) {
         subtractedCapacity = payload.capacity;
         curCapacity = nodeContext.get("capacity");
         curLoad = nodeContext.get("load");
-        curLoadPercentage = nodeContext.get("loadPercentage");
+        // curLoadPercentage = nodeContext.get("loadPercentage");
 
         newCapacity = curCapacity + subtractedCapacity;
         newLoad = curLoad - subtractedCapacity;
+        if (newLoad < 0) console.log({ curLoad, subtractedCapacity });
         newLoadPercentage =
           ((curLoad - subtractedCapacity) / node.capacity) * 100;
 
