@@ -89,7 +89,7 @@
       ["becb15a3.a302c8"],
       ["e5ae5803.b29348"],
       ["f0919fb8.fec79"],
-      ["3a58c90e.176ff6", "c2103ada.687a68"]
+      ["3a58c90e.176ff6", "c2103ada.687a68", "56f2025.3d282fc"]
     ]
   },
   {
@@ -136,7 +136,7 @@
     "statusVal": "",
     "statusType": "auto",
     "x": 1290,
-    "y": 640,
+    "y": 660,
     "wires": []
   },
   {
@@ -163,7 +163,10 @@
     "outputs": 2,
     "x": 1070,
     "y": 320,
-    "wires": [["d1e10ae1.c32518"], ["3a58c90e.176ff6", "c2103ada.687a68"]]
+    "wires": [
+      ["d1e10ae1.c32518"],
+      ["3a58c90e.176ff6", "c2103ada.687a68", "56f2025.3d282fc"]
+    ]
   },
   {
     "id": "1608676c.145c69",
@@ -300,7 +303,7 @@
     "name": "Cloud",
     "x": 1270,
     "y": 320,
-    "wires": [["3a58c90e.176ff6", "c2103ada.687a68"]]
+    "wires": [["3a58c90e.176ff6", "c2103ada.687a68", "56f2025.3d282fc"]]
   },
   {
     "id": "8ce966a8.34d3c8",
@@ -308,7 +311,7 @@
     "z": "92193ed2.97f37",
     "name": "Context Logger",
     "x": 360,
-    "y": 580,
+    "y": 620,
     "wires": [["465ef76b.8cd0c8"]]
   },
   {
@@ -320,7 +323,7 @@
     "dataField": "data",
     "disableDiscover": false,
     "x": 1090,
-    "y": 640,
+    "y": 660,
     "wires": [[]]
   },
   {
@@ -335,7 +338,7 @@
     "finalize": "",
     "libs": [],
     "x": 880,
-    "y": 640,
+    "y": 660,
     "wires": [["af74fb5f.190fc8"]]
   },
   {
@@ -472,8 +475,8 @@
     "name": "Load Graph",
     "group": "428d615b.c1219",
     "order": 0,
-    "width": 0,
-    "height": 0,
+    "width": "18",
+    "height": "12",
     "label": "chart",
     "chartType": "line",
     "legend": "true",
@@ -484,7 +487,7 @@
     "ymin": "0",
     "ymax": "100",
     "removeOlder": 1,
-    "removeOlderPoints": "",
+    "removeOlderPoints": "50",
     "removeOlderUnit": "3600",
     "cutout": 0,
     "useOneColor": false,
@@ -503,7 +506,7 @@
     "outputs": 1,
     "useDifferentColor": false,
     "x": 590,
-    "y": 700,
+    "y": 720,
     "wires": [[]]
   },
   {
@@ -511,14 +514,14 @@
     "type": "function",
     "z": "92193ed2.97f37",
     "name": "graph formatter",
-    "func": "\nconsole.log(msg.payload)\n\nreturn msg.payload.data;",
+    "func": "\n// console.log(msg.payload)\n\nreturn msg.payload.data;",
     "outputs": 8,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
     "libs": [],
     "x": 360,
-    "y": 700,
+    "y": 720,
     "wires": [
       ["97cec763.575008"],
       ["97cec763.575008"],
@@ -531,13 +534,22 @@
     ]
   },
   {
+    "id": "56f2025.3d282fc",
+    "type": "response-logger",
+    "z": "92193ed2.97f37",
+    "name": "Response Logger",
+    "x": 650,
+    "y": 660,
+    "wires": [[]]
+  },
+  {
     "id": "428d615b.c1219",
     "type": "ui_group",
     "name": "load",
     "tab": "33452462.8ae5ec",
     "order": 1,
     "disp": true,
-    "width": "6",
+    "width": "20",
     "collapse": false
   },
   {
