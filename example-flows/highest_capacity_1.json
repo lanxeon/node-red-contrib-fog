@@ -181,7 +181,7 @@
     "minCapacity": "1",
     "maxCapacity": "240",
     "minIPS": "1",
-    "maxIPS": "90",
+    "maxIPS": "85",
     "interval": "0.7",
     "x": 360,
     "y": 180,
@@ -195,7 +195,7 @@
     "minCapacity": "50",
     "maxCapacity": "350",
     "minIPS": "100",
-    "maxIPS": "1500",
+    "maxIPS": "1150",
     "interval": "0.5",
     "x": 360,
     "y": 260,
@@ -261,7 +261,8 @@
         "8ce966a8.34d3c8",
         "5a7c40f8.63b4",
         "230d3d9c.bdfc12",
-        "ff9bd720.cc92d8"
+        "ff9bd720.cc92d8",
+        "da4ad3e.0dea83"
       ]
     ]
   },
@@ -297,7 +298,8 @@
         "8ce966a8.34d3c8",
         "5a7c40f8.63b4",
         "230d3d9c.bdfc12",
-        "ff9bd720.cc92d8"
+        "ff9bd720.cc92d8",
+        "da4ad3e.0dea83"
       ]
     ]
   },
@@ -336,7 +338,7 @@
     "type": "function",
     "z": "92193ed2.97f37",
     "name": "graph formatter",
-    "func": "\nmsg.payload.data = {... msg.payload}\nmsg.payload.timestamp = Date.now();\n\nreturn msg;",
+    "func": "\nmsg.payload.data = {\n    \"Response Time\": msg.payload.timeout,\n    \"Request Capacity\": msg.payload.capacity,\n    \"CPU Instructions\": msg.payload.instructions,\n}\nmsg.payload.timestamp = Date.now();\n\nreturn msg;",
     "outputs": 1,
     "noerr": 0,
     "initialize": "",
@@ -562,6 +564,20 @@
     "x": 910,
     "y": 380,
     "wires": [["6ccdc288.367fac"]]
+  },
+  {
+    "id": "da4ad3e.0dea83",
+    "type": "device",
+    "z": "92193ed2.97f37",
+    "name": "car sensor",
+    "minCapacity": 1,
+    "maxCapacity": "35",
+    "minIPS": 1,
+    "maxIPS": "10",
+    "interval": "0.92",
+    "x": 370,
+    "y": 220,
+    "wires": [["a32b546b.6438b8"]]
   },
   {
     "id": "428d615b.c1219",

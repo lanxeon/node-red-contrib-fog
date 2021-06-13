@@ -25,6 +25,12 @@
         value: "optimal", required: true, validate: function (v) {
           return ["highest_capacity", "earliest_response", "equal_capacity", "optimal"].includes(v);
         }
+      },
+      loadThreshold: {
+        value: 75, validate: RED.validators.number(),
+      },
+      timeoutThreshold: {
+        value: 150, validate: RED.validators.number(),
       }
     },
     inputs: 1,
@@ -71,11 +77,19 @@
         <option value="equal_capacity">Equal Capacity</option>
       </select>
     </div>
+    <div class="form-row">
+      <label for="node-input-loadThreshold">load Threshold(%)</label>
+      <input type="text" id="node-input-loadThreshold" placeholder="0-100%">
+    </div>
+    <div class="form-row">
+      <label for="node-input-timeoutThreshold">Response Time Threshold(ms)</label>
+      <input type="text" id="node-input-timeoutThreshold" placeholder="ms">
+    </div>
 </script>
 
 <!-- helper script -->
 <script type="text/html" data-help-name="fog-node">
-    <p>A fog node</p>
+    <p>A fog node, with configurable specs such as latency, CPU cycles, etc</p>
 </script>
 
 

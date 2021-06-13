@@ -23,8 +23,8 @@ module.exports = function (RED) {
     this.IPS = +config.IPS; // Instructions per second
     this.latency = +config.latency;
     this.level = +config.level;
-    this.loadThreshold = +config.loadThreshold;
-    this.timeoutThreshold = +config.timeoutThreshold;
+    this.loadThreshold = +config.loadThreshold || 0;
+    this.timeoutThreshold = +config.timeoutThreshold || 0;
 
     // load balancing mode
     this.mode = config.mode;
@@ -125,7 +125,7 @@ module.exports = function (RED) {
           let predictedResponseTime = (payload.instructions / this.IPS) * 1000;
 
           if (
-            predictedResponseTime < node.timeoutThreshold ||
+            predictedResponseTime > node.timeoutThreshold ||
             (curLoad > node.loadThreshold && curLoad > averageLoad)
           )
             redirectRequest = true;
