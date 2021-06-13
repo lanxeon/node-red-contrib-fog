@@ -15,7 +15,7 @@
     "capacity": "240",
     "level": 1,
     "IPS": "700",
-    "latency": "50",
+    "latency": "9",
     "mode": "highest_capacity",
     "x": 530,
     "y": 180,
@@ -30,7 +30,7 @@
     "capacity": "285",
     "level": 1,
     "IPS": "1200",
-    "latency": "90",
+    "latency": "24",
     "mode": "highest_capacity",
     "x": 530,
     "y": 260,
@@ -45,7 +45,7 @@
     "capacity": "330",
     "level": 1,
     "IPS": "800",
-    "latency": "75",
+    "latency": "16",
     "mode": "highest_capacity",
     "x": 530,
     "y": 340,
@@ -84,12 +84,17 @@
     "repair": false,
     "outputs": 4,
     "x": 730,
-    "y": 320,
+    "y": 340,
     "wires": [
       ["becb15a3.a302c8"],
       ["e5ae5803.b29348"],
       ["f0919fb8.fec79"],
-      ["3a58c90e.176ff6", "c2103ada.687a68", "56f2025.3d282fc"]
+      [
+        "c2103ada.687a68",
+        "56f2025.3d282fc",
+        "3a58c90e.176ff6",
+        "e1eb5aa6.d26318"
+      ]
     ]
   },
   {
@@ -101,10 +106,10 @@
     "capacity": "700",
     "level": "2",
     "IPS": "2670",
-    "latency": "45",
+    "latency": "15",
     "mode": "highest_capacity",
     "x": 910,
-    "y": 260,
+    "y": 200,
     "wires": [["6ccdc288.367fac"]]
   },
   {
@@ -116,10 +121,10 @@
     "capacity": "720",
     "level": "2",
     "IPS": "3800",
-    "latency": "60",
+    "latency": "27",
     "mode": "highest_capacity",
     "x": 910,
-    "y": 320,
+    "y": 260,
     "wires": [["6ccdc288.367fac"]]
   },
   {
@@ -350,7 +355,7 @@
     "capacity": "190",
     "level": 1,
     "IPS": "700",
-    "latency": "90",
+    "latency": "20",
     "mode": "highest_capacity",
     "x": 530,
     "y": 420,
@@ -379,7 +384,7 @@
     "capacity": "95",
     "level": 1,
     "IPS": "320",
-    "latency": "30",
+    "latency": "17",
     "mode": "highest_capacity",
     "x": 530,
     "y": 500,
@@ -422,10 +427,10 @@
     "capacity": "660",
     "level": "2",
     "IPS": "4020",
-    "latency": "25",
+    "latency": "30",
     "mode": "highest_capacity",
     "x": 910,
-    "y": 380,
+    "y": 320,
     "wires": [["6ccdc288.367fac"]]
   },
   {
@@ -505,7 +510,7 @@
     ],
     "outputs": 1,
     "useDifferentColor": false,
-    "x": 590,
+    "x": 610,
     "y": 720,
     "wires": [[]]
   },
@@ -515,7 +520,7 @@
     "z": "92193ed2.97f37",
     "name": "graph formatter",
     "func": "\n// console.log(msg.payload)\n\nreturn msg.payload.data;",
-    "outputs": 8,
+    "outputs": 9,
     "noerr": 0,
     "initialize": "",
     "finalize": "",
@@ -523,6 +528,7 @@
     "x": 360,
     "y": 720,
     "wires": [
+      ["97cec763.575008"],
       ["97cec763.575008"],
       ["97cec763.575008"],
       ["97cec763.575008"],
@@ -541,6 +547,21 @@
     "x": 650,
     "y": 660,
     "wires": [[]]
+  },
+  {
+    "id": "e1eb5aa6.d26318",
+    "type": "fog-node",
+    "z": "92193ed2.97f37",
+    "name": "node 9",
+    "number": "9",
+    "capacity": "625",
+    "level": "2",
+    "IPS": "2800",
+    "latency": "21",
+    "mode": "highest_capacity",
+    "x": 910,
+    "y": 380,
+    "wires": [["6ccdc288.367fac"]]
   },
   {
     "id": "428d615b.c1219",

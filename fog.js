@@ -87,7 +87,22 @@ module.exports = function (RED) {
       payload.timeout += node.latency;
       payload.path.push(node.number);
 
-      if (payload.capacity > nodeContext.get("capacity")) {
+      let redirectRequest = false;
+      if (payload.capacity > nodeContext.get("capacity"))
+        redirectRequest = true;
+      else if (
+        (this.mode === "earliest_response" && payload.instructions / this.IPS) *
+          1000 >
+        150
+      )
+        redirectRequest = true;
+      else if (
+        this.mode === "equal_capacity" &&
+        node.context().get("loadPercentage") > 70
+      )
+        redirectRequest = true;
+
+      if (redirectRequest) {
         if (this.level === flowContext.get("highestLevel")) {
           // go to cloud
           return node.send({
@@ -98,7 +113,7 @@ module.exports = function (RED) {
           });
         }
 
-        let fogNodes = node.context().flow.get("fogNodes");
+        let fogNodes = { ...node.context().flow.get("fogNodes") };
         let nextLevel = fogNodes[node.level + 1];
         let chosenNode;
         let highestCapNode;

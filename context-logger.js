@@ -22,7 +22,7 @@ module.exports = function (RED) {
       else node.context().set("injecting", false);
 
       while (node.context().get("injecting")) {
-        await timeout(0.75 * 1000);
+        await timeout(0.3 * 1000);
 
         let context = node.context().flow.get("fogNodes");
         let data = [];
