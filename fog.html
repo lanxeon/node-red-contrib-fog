@@ -8,8 +8,8 @@
       name: { value: "" },
       number: { value: 0, required: true, validate: RED.validators.number() },
       capacity: {
-        value: 0, required: true, validate: function (v) {
-          return typeof +v === "number" && +v >= 1 && +v <= 1000
+        value: 500, required: true, validate: function (v) {
+          return typeof +v === "number" && +v >= 1 && +v <= 2000
         }
       },
       level: {
@@ -22,8 +22,8 @@
         value: 500, required: true, validate: RED.validators.number()
       },
       mode: {
-        value: "highest_capacity", required: true, validate: function (v) {
-          return ["highest_capacity", "earliest_response", "equal_capacity"].includes(v);
+        value: "optimal", required: true, validate: function (v) {
+          return ["highest_capacity", "earliest_response", "equal_capacity", "optimal"].includes(v);
         }
       }
     },
@@ -39,32 +39,33 @@
 <!-- inputs on node -->
 <script type="text/html" data-template-name="fog-node">
     <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <label for="node-input-name">Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-      <label for="node-input-number"><i class="fa fa-tag"></i>Node Number</label>
+      <label for="node-input-number">Node Number</label>
       <input type="text" id="node-input-number" placeholder="Number">
     </div>
     <div class="form-row">
-      <label for="node-input-capacity"><i class="fa fa-tag"></i>Capacity</label>
-      <input type="text" id="node-input-capacity" placeholder="0-1000">
+      <label for="node-input-capacity">Capacity</label>
+      <input type="text" id="node-input-capacity" placeholder="0-2000">
     </div>
     <div class="form-row">
-      <label for="node-input-level"><i class="fa fa-tag"></i>Level</label>
+      <label for="node-input-level">Level</label>
       <input type="text" id="node-input-level" placeholder="Level">
     </div>
     <div class="form-row">
-      <label for="node-input-IPS"><i class="fa fa-tag"></i>Instructions Per Second</label>
+      <label for="node-input-IPS">Instructions Per Second</label>
       <input type="text" id="node-input-IPS" placeholder="0-5000">
     </div>
     <div class="form-row">
-      <label for="node-input-latency"><i class="fa fa-tag"></i>Latency(ms)</label>
+      <label for="node-input-latency">Latency(ms)</label>
       <input type="text" id="node-input-latency" placeholder="0-1500">
     </div>
     <div class="form-row">
-      <label for="node-input-mode"><i class="fa fa-tag"></i>Mode</label>
-      <select id="node-input-mode" placeholder="0-1500">
+      <label for="node-input-mode">Mode</label>
+      <select id="node-input-mode" placeholder="Select LB Scheme">
+        <option value="optimal">Optimal (Recommended)</option>
         <option value="highest_capacity">Highest Capacity</option>
         <option value="earliest_response">Earliest Response</option>
         <option value="equal_capacity">Equal Capacity</option>
@@ -120,27 +121,27 @@
 <!-- inputs on node -->
 <script type="text/html" data-template-name="device">
     <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <label for="node-input-name">Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
     <div class="form-row">
-      <label for="node-input-minCapacity"><i class="fa fa-tag"></i>Minimum Capacity</label>
+      <label for="node-input-minCapacity">Minimum Capacity</label>
       <input type="text" id="node-input-minCapacity" placeholder="0-1000">
     </div>
     <div class="form-row">
-      <label for="node-input-maxCapacity"><i class="fa fa-tag"></i>Maximum Capacity</label>
+      <label for="node-input-maxCapacity">Maximum Capacity</label>
       <input type="text" id="node-input-maxCapacity" placeholder="0-1000">
     </div>
     <div class="form-row">
-      <label for="node-input-minIPS"><i class="fa fa-tag"></i>Minimum Instructions</label>
+      <label for="node-input-minIPS">Minimum Instructions</label>
       <input type="text" id="node-input-minIPS" placeholder="0-5000">
     </div>
     <div class="form-row">
-      <label for="node-input-maxIPS"><i class="fa fa-tag"></i>Maximum Instructions</label>
+      <label for="node-input-maxIPS">Maximum Instructions</label>
       <input type="text" id="node-input-maxIPS" placeholder="0-5000">
     </div>
     <div class="form-row">
-      <label for="node-input-interval"><i class="fa fa-tag"></i>Interval(seconds)</label>
+      <label for="node-input-interval">Interval(seconds)</label>
       <input type="text" id="node-input-interval" placeholder="0-5">
     </div>
 </script>
@@ -172,7 +173,7 @@
 <!-- inputs on node -->
 <script type="text/html" data-template-name="cloud">
     <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <label for="node-input-name">Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
@@ -204,7 +205,7 @@
 <!-- inputs on node -->
 <script type="text/html" data-template-name="logger">
     <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <label for="node-input-name">Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>
@@ -236,7 +237,7 @@
 <!-- inputs on node -->
 <script type="text/html" data-template-name="response-logger">
     <div class="form-row">
-        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <label for="node-input-name">Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
     </div>
 </script>

@@ -9,7 +9,13 @@ module.exports = function (RED) {
       return new Promise((resolve) => setTimeout(resolve, ms));
     }
 
-    const modes = ["highest_capacity", "earliest_response", "equal_capacity"];
+    // load balancing modes
+    const modes = [
+      "highest_capacity",
+      "earliest_response",
+      "equal_capacity",
+      "optimal",
+    ];
 
     // initializing properties
     this.number = +config.number;
@@ -17,12 +23,14 @@ module.exports = function (RED) {
     this.IPS = +config.IPS; // Instructions per second
     this.latency = +config.latency;
     this.level = +config.level;
+    this.loadThreshold = +config.loadThreshold;
+    this.timeoutThreshold = +config.timeoutThreshold;
 
     // load balancing mode
     this.mode = config.mode;
 
     if (!modes.includes(this.mode)) {
-      this.mode = "highest_capacity";
+      this.mode = "optimal"; //let optimal be the default mode
     }
 
     const node = this;
@@ -75,32 +83,54 @@ module.exports = function (RED) {
       });
     }
 
+    // flowContext.set("load")
+
     // when flow reaches here with a msg
     node.on("input", async function (msg) {
       // wait for this before performing actions
       await timeout(node.latency);
 
-      // fs.writeFileSync(`${Date.now()}.txt`, JSON.stringify(msg));
-
       // perform actions
       let { payload } = msg;
+      let fogNodes = { ...node.context().flow.get("fogNodes") };
+
       payload.timeout += node.latency;
       payload.path.push(node.number);
 
       let redirectRequest = false;
-      if (payload.capacity > nodeContext.get("capacity"))
+      if (payload.capacity > nodeContext.get("capacity")) {
         redirectRequest = true;
-      else if (
+      } else if (
         (this.mode === "earliest_response" && payload.instructions / this.IPS) *
           1000 >
-        150
-      )
+        node.timeoutThreshold
+      ) {
         redirectRequest = true;
-      else if (
+      } else if (
         this.mode === "equal_capacity" &&
-        node.context().get("loadPercentage") > 70
-      )
+        node.context().get("loadPercentage") > node.loadThreshold
+      ) {
         redirectRequest = true;
+      } else if (this.mode === "optimal") {
+        if (this.level === flowContext.get("highestLevel"))
+          redirectRequest = true;
+        else {
+          let curLoads = Object.values(fogNodes[this.level + 1]).map(
+            (f) => f.loadPercentage
+          );
+          let total = curLoads.reduce((a, b) => a + b, 0);
+
+          let averageLoad = total / curLoads.length;
+          let curLoad = node.context().get("loadPercentage");
+          let predictedResponseTime = (payload.instructions / this.IPS) * 1000;
+
+          if (
+            predictedResponseTime < node.timeoutThreshold ||
+            (curLoad > node.loadThreshold && curLoad > averageLoad)
+          )
+            redirectRequest = true;
+        }
+      }
 
       if (redirectRequest) {
         if (this.level === flowContext.get("highestLevel")) {
@@ -113,7 +143,6 @@ module.exports = function (RED) {
           });
         }
 
-        let fogNodes = { ...node.context().flow.get("fogNodes") };
         let nextLevel = fogNodes[node.level + 1];
         let chosenNode;
         let highestCapNode;
@@ -130,7 +159,6 @@ module.exports = function (RED) {
                 chosenNode = highestCapNode = levelNode;
               }
             }
-
             break;
 
           case "earliest_response":
@@ -154,7 +182,6 @@ module.exports = function (RED) {
             if (!chosenNode) {
               chosenNode = highestCapNode;
             }
-
             break;
 
           case "equal_capacity":
@@ -176,6 +203,32 @@ module.exports = function (RED) {
               chosenNode = highestCapNode;
             }
             break;
+
+          default:
+            for (const levelNode of Object.keys(nextLevel)) {
+              if (nextLevel[levelNode].capacity > highestCap) {
+                highestCap = nextLevel[levelNode].capacity;
+                highestCapNode = levelNode;
+
+                if (nextLevel[levelNode].capacity > payload.capacity) {
+                  let predictedTime =
+                    nextLevel[levelNode].timeout +
+                    (payload.instructions / nextLevel[levelNode].IPS) * 1000;
+
+                  if (
+                    nextLevel[levelNode].loadPercentage < lowestPercentage &&
+                    predictedTime < lowestPredictedTime
+                  ) {
+                    lowestPredictedTime = predictedTime;
+                    lowestPercentage = nextLevel[levelNode].loadPercentage;
+                    chosenNode = levelNode;
+                  }
+                }
+              }
+            }
+            if (!chosenNode) {
+              chosenNode = highestCapNode;
+            }
         }
 
         node.send({
