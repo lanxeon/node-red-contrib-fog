@@ -23,8 +23,8 @@ module.exports = function (RED) {
     this.IPS = +config.IPS; // Instructions per second
     this.latency = +config.latency;
     this.level = +config.level;
-    this.loadThreshold = +config.loadThreshold || 0;
-    this.timeoutThreshold = +config.timeoutThreshold || 0;
+    this.loadThreshold = +config.loadThreshold || 80;
+    this.timeoutThreshold = +config.timeoutThreshold || 100;
 
     // load balancing mode
     this.mode = config.mode;
@@ -112,9 +112,10 @@ module.exports = function (RED) {
       ) {
         redirectRequest = true;
       } else if (this.mode === "optimal") {
-        if (this.level === flowContext.get("highestLevel"))
-          redirectRequest = true;
-        else {
+        if (this.level === flowContext.get("highestLevel")) {
+          let curLoad = node.context().get("loadPercentage");
+          if (curLoad > node.loadThreshold) redirectRequest = true;
+        } else {
           let curLoads = Object.values(fogNodes[this.level + 1]).map(
             (f) => f.loadPercentage
           );
@@ -133,6 +134,8 @@ module.exports = function (RED) {
       }
 
       if (redirectRequest) {
+        console.log(node.number);
+
         if (this.level === flowContext.get("highestLevel")) {
           // go to cloud
           return node.send({
@@ -150,6 +153,7 @@ module.exports = function (RED) {
         let highestCap = 0;
         let lowestPercentage = 100;
         let lowestPredictedTime = 9999999;
+        let lowestWeightedAverage = 99999999;
 
         switch (node.mode) {
           case "highest_capacity":
@@ -169,8 +173,10 @@ module.exports = function (RED) {
 
                 if (nextLevel[levelNode].capacity > payload.capacity) {
                   let predictedTime =
-                    nextLevel[levelNode].timeout +
+                    nextLevel[levelNode].latency +
                     (payload.instructions / nextLevel[levelNode].IPS) * 1000;
+
+                  console.log(predictedTime);
 
                   if (predictedTime < lowestPredictedTime) {
                     lowestPredictedTime = predictedTime;
@@ -212,12 +218,21 @@ module.exports = function (RED) {
 
                 if (nextLevel[levelNode].capacity > payload.capacity) {
                   let predictedTime =
-                    nextLevel[levelNode].timeout +
+                    nextLevel[levelNode].latency +
                     (payload.instructions / nextLevel[levelNode].IPS) * 1000;
 
+                  // if (
+                  //   nextLevel[levelNode].loadPercentage <= lowestPercentage &&
+                  //   predictedTime <= lowestPredictedTime
+                  // ) {
+                  //   lowestPredictedTime = predictedTime;
+                  //   lowestPercentage = nextLevel[levelNode].loadPercentage;
+                  //   chosenNode = levelNode;
+                  // }
+
                   if (
-                    nextLevel[levelNode].loadPercentage < lowestPercentage &&
-                    predictedTime < lowestPredictedTime
+                    predictedTime * nextLevel[levelNode].loadPercentage <
+                    lowestWeightedAverage
                   ) {
                     lowestPredictedTime = predictedTime;
                     lowestPercentage = nextLevel[levelNode].loadPercentage;

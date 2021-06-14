@@ -1,0 +1,736 @@
+[
+    {
+        "id": "92193ed2.97f37",
+        "type": "tab",
+        "label": "trial",
+        "disabled": false,
+        "info": "trial"
+    },
+    {
+        "id": "a32b546b.6438b8",
+        "type": "fog-node",
+        "z": "92193ed2.97f37",
+        "name": "node 1",
+        "number": "1",
+        "capacity": "240",
+        "level": 1,
+        "IPS": "700",
+        "latency": "9",
+        "mode": "equal_capacity",
+        "loadThreshold": "75",
+        "timeoutThreshold": "150",
+        "x": 530,
+        "y": 180,
+        "wires": [
+            [
+                "d3916e2e.8b12a"
+            ]
+        ]
+    },
+    {
+        "id": "91150dba.9c13d",
+        "type": "fog-node",
+        "z": "92193ed2.97f37",
+        "name": "node 2",
+        "number": "2",
+        "capacity": "285",
+        "level": 1,
+        "IPS": "1200",
+        "latency": "24",
+        "mode": "equal_capacity",
+        "loadThreshold": "75",
+        "timeoutThreshold": "150",
+        "x": 530,
+        "y": 260,
+        "wires": [
+            [
+                "d3916e2e.8b12a"
+            ]
+        ]
+    },
+    {
+        "id": "77d54ec2.3a60b",
+        "type": "fog-node",
+        "z": "92193ed2.97f37",
+        "name": "node 3",
+        "number": "3",
+        "capacity": "330",
+        "level": 1,
+        "IPS": "800",
+        "latency": "16",
+        "mode": "equal_capacity",
+        "loadThreshold": "75",
+        "timeoutThreshold": "150",
+        "x": 530,
+        "y": 340,
+        "wires": [
+            [
+                "d3916e2e.8b12a"
+            ]
+        ]
+    },
+    {
+        "id": "d3916e2e.8b12a",
+        "type": "switch",
+        "z": "92193ed2.97f37",
+        "name": "router",
+        "property": "forwardTo",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "7",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "8",
+                "vt": "num"
+            },
+            {
+                "t": "eq",
+                "v": "debug",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 730,
+        "y": 340,
+        "wires": [
+            [
+                "becb15a3.a302c8"
+            ],
+            [
+                "e5ae5803.b29348"
+            ],
+            [
+                "f0919fb8.fec79"
+            ],
+            [
+                "c2103ada.687a68",
+                "56f2025.3d282fc",
+                "3a58c90e.176ff6",
+                "e1eb5aa6.d26318"
+            ]
+        ]
+    },
+    {
+        "id": "becb15a3.a302c8",
+        "type": "fog-node",
+        "z": "92193ed2.97f37",
+        "name": "node 6",
+        "number": "6",
+        "capacity": "700",
+        "level": "2",
+        "IPS": "2670",
+        "latency": "15",
+        "mode": "equal_capacity",
+        "loadThreshold": "75",
+        "timeoutThreshold": "150",
+        "x": 910,
+        "y": 200,
+        "wires": [
+            [
+                "6ccdc288.367fac"
+            ]
+        ]
+    },
+    {
+        "id": "e5ae5803.b29348",
+        "type": "fog-node",
+        "z": "92193ed2.97f37",
+        "name": "node 7",
+        "number": "7",
+        "capacity": "720",
+        "level": "2",
+        "IPS": "3800",
+        "latency": "27",
+        "mode": "equal_capacity",
+        "loadThreshold": "75",
+        "timeoutThreshold": "150",
+        "x": 910,
+        "y": 260,
+        "wires": [
+            [
+                "6ccdc288.367fac"
+            ]
+        ]
+    },
+    {
+        "id": "3a58c90e.176ff6",
+        "type": "debug",
+        "z": "92193ed2.97f37",
+        "name": "Output",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1290,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "6ccdc288.367fac",
+        "type": "switch",
+        "z": "92193ed2.97f37",
+        "name": "router",
+        "property": "forwardTo",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "cloud",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "debug",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1070,
+        "y": 320,
+        "wires": [
+            [
+                "d1e10ae1.c32518"
+            ],
+            [
+                "3a58c90e.176ff6",
+                "c2103ada.687a68",
+                "56f2025.3d282fc"
+            ]
+        ]
+    },
+    {
+        "id": "1608676c.145c69",
+        "type": "device",
+        "z": "92193ed2.97f37",
+        "name": "mobile 1",
+        "minCapacity": "1",
+        "maxCapacity": "240",
+        "minIPS": "1",
+        "maxIPS": "85",
+        "interval": "0.7",
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "a32b546b.6438b8"
+            ]
+        ]
+    },
+    {
+        "id": "8e64a9e8.f2be58",
+        "type": "device",
+        "z": "92193ed2.97f37",
+        "name": "mobile 2",
+        "minCapacity": "50",
+        "maxCapacity": "350",
+        "minIPS": "100",
+        "maxIPS": "1150",
+        "interval": "0.5",
+        "x": 360,
+        "y": 260,
+        "wires": [
+            [
+                "91150dba.9c13d"
+            ]
+        ]
+    },
+    {
+        "id": "bb5f6b87.7de3b8",
+        "type": "device",
+        "z": "92193ed2.97f37",
+        "name": "ECG 1",
+        "minCapacity": "5",
+        "maxCapacity": "60",
+        "minIPS": "1",
+        "maxIPS": "20",
+        "interval": "0.1",
+        "x": 350,
+        "y": 320,
+        "wires": [
+            [
+                "77d54ec2.3a60b"
+            ]
+        ]
+    },
+    {
+        "id": "a08ff161.bc217",
+        "type": "device",
+        "z": "92193ed2.97f37",
+        "name": "mobile 3",
+        "minCapacity": "200",
+        "maxCapacity": "800",
+        "minIPS": "1",
+        "maxIPS": "1200",
+        "interval": "1.1",
+        "x": 360,
+        "y": 360,
+        "wires": [
+            [
+                "77d54ec2.3a60b"
+            ]
+        ]
+    },
+    {
+        "id": "5eeaa53c.ba835c",
+        "type": "inject",
+        "z": "92193ed2.97f37",
+        "name": "start",
+        "props": [
+            {
+                "p": "action",
+                "v": "start",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "1608676c.145c69",
+                "8e64a9e8.f2be58",
+                "bb5f6b87.7de3b8",
+                "a08ff161.bc217",
+                "8ce966a8.34d3c8",
+                "5a7c40f8.63b4",
+                "230d3d9c.bdfc12",
+                "ff9bd720.cc92d8",
+                "da4ad3e.0dea83"
+            ]
+        ]
+    },
+    {
+        "id": "e62af51b.485df8",
+        "type": "inject",
+        "z": "92193ed2.97f37",
+        "name": "stop",
+        "props": [
+            {
+                "p": "action",
+                "v": "stop",
+                "vt": "str"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 110,
+        "y": 460,
+        "wires": [
+            [
+                "1608676c.145c69",
+                "8e64a9e8.f2be58",
+                "bb5f6b87.7de3b8",
+                "a08ff161.bc217",
+                "8ce966a8.34d3c8",
+                "5a7c40f8.63b4",
+                "230d3d9c.bdfc12",
+                "ff9bd720.cc92d8",
+                "da4ad3e.0dea83"
+            ]
+        ]
+    },
+    {
+        "id": "d1e10ae1.c32518",
+        "type": "cloud",
+        "z": "92193ed2.97f37",
+        "name": "Cloud",
+        "x": 1270,
+        "y": 320,
+        "wires": [
+            [
+                "3a58c90e.176ff6",
+                "c2103ada.687a68",
+                "56f2025.3d282fc"
+            ]
+        ]
+    },
+    {
+        "id": "8ce966a8.34d3c8",
+        "type": "logger",
+        "z": "92193ed2.97f37",
+        "name": "Context Logger",
+        "x": 360,
+        "y": 620,
+        "wires": [
+            [
+                "465ef76b.8cd0c8"
+            ]
+        ]
+    },
+    {
+        "id": "af74fb5f.190fc8",
+        "type": "iot-datasource",
+        "z": "92193ed2.97f37",
+        "name": "response graphs",
+        "tstampField": "timestamp",
+        "dataField": "data",
+        "disableDiscover": false,
+        "x": 1090,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c2103ada.687a68",
+        "type": "function",
+        "z": "92193ed2.97f37",
+        "name": "graph formatter",
+        "func": "\nmsg.payload.data = {\n    \"Response Time\": msg.payload.timeout,\n    \"Request Capacity\": msg.payload.capacity,\n    \"CPU Instructions\": msg.payload.instructions,\n}\nmsg.payload.timestamp = Date.now();\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 660,
+        "wires": [
+            [
+                "af74fb5f.190fc8"
+            ]
+        ]
+    },
+    {
+        "id": "166ae052.a9dc9",
+        "type": "fog-node",
+        "z": "92193ed2.97f37",
+        "name": "node 4",
+        "number": "4",
+        "capacity": "190",
+        "level": 1,
+        "IPS": "700",
+        "latency": "20",
+        "mode": "equal_capacity",
+        "loadThreshold": "75",
+        "timeoutThreshold": "150",
+        "x": 530,
+        "y": 420,
+        "wires": [
+            [
+                "d3916e2e.8b12a"
+            ]
+        ]
+    },
+    {
+        "id": "5a7c40f8.63b4",
+        "type": "device",
+        "z": "92193ed2.97f37",
+        "name": "mobile 4",
+        "minCapacity": 1,
+        "maxCapacity": "130",
+        "minIPS": "60",
+        "maxIPS": "210",
+        "interval": "0.85",
+        "x": 360,
+        "y": 420,
+        "wires": [
+            [
+                "166ae052.a9dc9"
+            ]
+        ]
+    },
+    {
+        "id": "6a840b0e.75f6c4",
+        "type": "fog-node",
+        "z": "92193ed2.97f37",
+        "name": "node 5",
+        "number": "5",
+        "capacity": "95",
+        "level": 1,
+        "IPS": "320",
+        "latency": "17",
+        "mode": "equal_capacity",
+        "loadThreshold": "75",
+        "timeoutThreshold": "150",
+        "x": 530,
+        "y": 500,
+        "wires": [
+            [
+                "d3916e2e.8b12a"
+            ]
+        ]
+    },
+    {
+        "id": "230d3d9c.bdfc12",
+        "type": "device",
+        "z": "92193ed2.97f37",
+        "name": "ECG 2",
+        "minCapacity": 1,
+        "maxCapacity": "10",
+        "minIPS": 1,
+        "maxIPS": "5",
+        "interval": "0.3",
+        "x": 350,
+        "y": 480,
+        "wires": [
+            [
+                "6a840b0e.75f6c4"
+            ]
+        ]
+    },
+    {
+        "id": "ff9bd720.cc92d8",
+        "type": "device",
+        "z": "92193ed2.97f37",
+        "name": "mobile 5",
+        "minCapacity": 1,
+        "maxCapacity": "410",
+        "minIPS": 1,
+        "maxIPS": "3000",
+        "interval": "1.2",
+        "x": 360,
+        "y": 520,
+        "wires": [
+            [
+                "6a840b0e.75f6c4"
+            ]
+        ]
+    },
+    {
+        "id": "f0919fb8.fec79",
+        "type": "fog-node",
+        "z": "92193ed2.97f37",
+        "name": "node 8",
+        "number": "8",
+        "capacity": "660",
+        "level": "2",
+        "IPS": "4020",
+        "latency": "30",
+        "mode": "equal_capacity",
+        "loadThreshold": "75",
+        "timeoutThreshold": "150",
+        "x": 910,
+        "y": 320,
+        "wires": [
+            [
+                "6ccdc288.367fac"
+            ]
+        ]
+    },
+    {
+        "id": "83119c4e.13526",
+        "type": "comment",
+        "z": "92193ed2.97f37",
+        "name": "IoT Devices",
+        "info": "",
+        "x": 350,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "be09a0a3.9ccdb",
+        "type": "comment",
+        "z": "92193ed2.97f37",
+        "name": "level 1",
+        "info": "",
+        "x": 530,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f2a3625d.07599",
+        "type": "comment",
+        "z": "92193ed2.97f37",
+        "name": "level 2",
+        "info": "",
+        "x": 910,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "14d48556.729acb",
+        "type": "comment",
+        "z": "92193ed2.97f37",
+        "name": "FOG LAYER",
+        "info": "",
+        "x": 790,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "97cec763.575008",
+        "type": "ui_chart",
+        "z": "92193ed2.97f37",
+        "name": "Load Graph",
+        "group": "428d615b.c1219",
+        "order": 0,
+        "width": "18",
+        "height": "12",
+        "label": "chart",
+        "chartType": "line",
+        "legend": "true",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "waiting for data ...",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "100",
+        "removeOlder": 1,
+        "removeOlderPoints": "50",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "x": 610,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "465ef76b.8cd0c8",
+        "type": "function",
+        "z": "92193ed2.97f37",
+        "name": "graph formatter",
+        "func": "\n// console.log(msg.payload)\n\nreturn msg.payload.data;",
+        "outputs": 9,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 720,
+        "wires": [
+            [
+                "97cec763.575008"
+            ],
+            [
+                "97cec763.575008"
+            ],
+            [
+                "97cec763.575008"
+            ],
+            [
+                "97cec763.575008"
+            ],
+            [
+                "97cec763.575008"
+            ],
+            [
+                "97cec763.575008"
+            ],
+            [
+                "97cec763.575008"
+            ],
+            [
+                "97cec763.575008"
+            ],
+            [
+                "97cec763.575008"
+            ]
+        ]
+    },
+    {
+        "id": "56f2025.3d282fc",
+        "type": "response-logger",
+        "z": "92193ed2.97f37",
+        "name": "Response Logger",
+        "x": 650,
+        "y": 660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e1eb5aa6.d26318",
+        "type": "fog-node",
+        "z": "92193ed2.97f37",
+        "name": "node 9",
+        "number": "9",
+        "capacity": "625",
+        "level": "2",
+        "IPS": "2800",
+        "latency": "21",
+        "mode": "equal_capacity",
+        "loadThreshold": "75",
+        "timeoutThreshold": "150",
+        "x": 910,
+        "y": 380,
+        "wires": [
+            [
+                "6ccdc288.367fac"
+            ]
+        ]
+    },
+    {
+        "id": "da4ad3e.0dea83",
+        "type": "device",
+        "z": "92193ed2.97f37",
+        "name": "car sensor",
+        "minCapacity": 1,
+        "maxCapacity": "35",
+        "minIPS": 1,
+        "maxIPS": "10",
+        "interval": "0.92",
+        "x": 370,
+        "y": 220,
+        "wires": [
+            [
+                "a32b546b.6438b8"
+            ]
+        ]
+    },
+    {
+        "id": "428d615b.c1219",
+        "type": "ui_group",
+        "name": "load",
+        "tab": "33452462.8ae5ec",
+        "order": 1,
+        "disp": true,
+        "width": "20",
+        "collapse": false
+    },
+    {
+        "id": "33452462.8ae5ec",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
