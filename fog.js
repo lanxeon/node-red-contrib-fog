@@ -134,7 +134,7 @@ module.exports = function (RED) {
       }
 
       if (redirectRequest) {
-        console.log(node.number);
+        // console.log(node.number);
 
         if (this.level === flowContext.get("highestLevel")) {
           // go to cloud
